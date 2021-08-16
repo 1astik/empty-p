@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const config = require('@config')
 const {EntityExists, Forbidden} = require('utils/error')
 const {checkErrorUniqueKey} = require('utils/error-helpers')
+const userEvents = require('./events')
 
 
 async function createUser(user) {
@@ -14,6 +15,8 @@ async function createUser(user) {
 
     delete user.password
     delete user.updatedAt
+
+    userEvents.updateUserBalance(String(user._id))
 
     return user
 }

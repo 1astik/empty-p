@@ -29,3 +29,5 @@ module.exports.isAdmin =
             next(new ApplicationError.Forbidden('Forbidden', 12))
         }
     }
+
+module.exports.authorizationWs = bearerToken => authService.authorization(bearerToken)

@@ -9,6 +9,9 @@
         "HTTP": {
             "PORT": 8090
         },
+        "WS": {
+            "PORT": 3901
+        },
         "CORS": {
             "ALLOWED_HEADERS": ["origin", "authorization", "content-type"],
             "ALLOWED_ORIGINS": ["http://localhost:8080"]

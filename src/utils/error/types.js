@@ -42,6 +42,15 @@ class IncorrectData extends ApplicationError {
     }
 }
 
+class ClientError extends ApplicationError {
+    constructor(message, status) {
+        super()
+        this.message = message
+        this.status = status
+        Object.defineProperty(this, 'status', {enumerable: false})
+    }
+}
+
 class Forbidden extends ApplicationError {
     constructor(message = 'Forbidden', code) {
         super(message, code)
@@ -87,6 +96,7 @@ ApplicationError.UnprocessableEntity = UnprocessableEntity
 ApplicationError.EntityExists = EntityExists
 ApplicationError.EntityNotExists = EntityNotExists
 ApplicationError.InternalError = InternalError
+ApplicationError.ClientError = ClientError
 
 
 module.exports = ApplicationError
